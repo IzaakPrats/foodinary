@@ -1,0 +1,6 @@
+framework module Pods_foodinary_ios {
+  umbrella header "Pods-foodinary_ios-umbrella.h"
+
+  export *
+  module * { export * }
+}
