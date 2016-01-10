@@ -22,13 +22,15 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     var product = Product.getProduct()
+    var upc: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // 49000036756 is a 2 liter bottle of coke
-        loadProductForUpc("49000036756")
+        if (upc != nil) {
+            loadProductForUpc(upc)
+        }
     }
     
     override func didReceiveMemoryWarning() {
