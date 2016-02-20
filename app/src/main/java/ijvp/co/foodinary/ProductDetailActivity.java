@@ -26,6 +26,8 @@ public class ProductDetailActivity extends AppCompatActivity {
     private final String NUTRIONIX_ID = "bafd9293";
     private final String NUTRIONIX_KEY = "444c2a51502358e5bb79b470c0f4d1e6";
 
+    private String PRODUCT_UPC;
+
     Product mProduct;
 
     @Override
@@ -33,8 +35,13 @@ public class ProductDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
 
-        // 49000036756 is a 2 Liter Bottle of Cherry Coke.
-        getProductForUpc("49000036756");
+        if (!getIntent().hasExtra("upc")) {
+            finish();
+        } else {
+            PRODUCT_UPC = getIntent().getStringExtra("upc");
+
+            getProductForUpc(PRODUCT_UPC);
+        }
     }
 
     @Override
